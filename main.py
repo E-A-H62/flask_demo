@@ -34,7 +34,7 @@ with app.app_context():
 @app.route("/home")
 def hello_world():
    # prints HTML to the webpage
-   return render_template('home.html', firstname = "Philana")
+   return render_template('home.html', firstname = "EAH")
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
