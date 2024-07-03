@@ -10,23 +10,21 @@ app = Flask(__name__)
 proxied = FlaskBehindProxy(app)
 app.config['SECRET_KEY'] = '7e78101c061bf50314f915edeca709ab'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
 
-
-
-
-# User Table represented as an object
 class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(20), unique=True, nullable=False)
-    email = db.Column(db.String(120), unique=True, nullable=False)
-    password = db.Column(db.String(60), nullable=False)
-    
-    def __repr__(self):
-        return f"User('{self.username}', '{self.email}')"
+  id = db.Column(db.Integer, primary_key=True)
+  username = db.Column(db.String(20), unique=True, nullable=False)
+  email = db.Column(db.String(120), unique=True, nullable=False)
+  password = db.Column(db.String(60), nullable=False)
+
+  def __repr__(self):
+    return f"User('{self.username}', '{self.email}')"
 
 with app.app_context():
-    db.create_all()
+  db.create_all()
+
 
 
 # tells you the URL the method below is related to
